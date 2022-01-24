@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Zapisz się na wizytę:</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Dodaj wizytę"/>
+    </form>
+{% endblock %}

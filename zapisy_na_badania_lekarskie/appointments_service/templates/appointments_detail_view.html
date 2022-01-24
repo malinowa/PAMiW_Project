@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3 style="margin-bottom: 20px">Szczegóły wizyty: </h3>
+    {% for field, v in info.items %}
+        <p><b>{{ field }}</b>:  {{ v }}</p>
+    {% endfor %}
+    <div style="margin-top: 20px;">
+        <a href="{% url 'appointments-service:appointments-list-view' %}">Powrót</a>
+    </div>
+
+{% endblock %}

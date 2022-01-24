@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3 style="margin-bottom: 20px">Twoje wizyty w toku:</h3>
+    {% for message in messages %}
+        <p style="color:green;">{{ message }}</p>
+    {% endfor %}
+    {% for appointment in appointments %}
+        <li> {{ appointment }}   |
+            <a href="{% url 'appointments-service:appointments-detail-view' pk=appointment.pk %}">Przejdź do szczegółów wizyty</a>   |
+            <a href="{% url 'appointments-service:appointments-delete-view' pk=appointment.pk %}">Odwołaj wizytę</a></li>
+    {% endfor %}
+    <h3 style="margin-top: 20px;margin-bottom: 20px">Zakończone wizyty:</h3>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'appointments-service:main-menu' %}">Powrót do panelu głównego</a>
+    </div>
+
+
+{% endblock %}

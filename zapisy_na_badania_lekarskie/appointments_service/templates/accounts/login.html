@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Login</h3>
+    <form method="POST" action ="">
+        {% csrf_token %}
+        <p><input type="text" name="username" placeholder="Username..."></p>
+        <p><input type="password" name="password" placeholder="Password..." ></p>
+        <p><input type="submit" name="Login User" value="Zaloguj"/></p>
+        {% for message in messages %}
+            <p id="message" style="color: red;"><b>{{ message }}</b></p>
+        {% endfor %}
+        <div>
+            Nie posiadasz konta? <a href="{% url 'appointments-service:register' %}">Zarejestruj się</a>
+        </div>
+    </form>
+{% endblock %}

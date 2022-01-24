@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="margin-bottom: 20px;text-align: center;">Hello '{{ username }}'</h1>
+    {% for message in messages %}
+        <p style="color:green;">{{ message }}</p>
+    {% endfor %}
+    <p><a href="{% url 'appointments-service:hospital-select-view' %}">Zapisz się na wizytę</a></p>
+    <p><a href="{% url 'appointments-service:appointments-list-view' %}">Wyświetl listę wizyt</a></p>
+{% endblock %}

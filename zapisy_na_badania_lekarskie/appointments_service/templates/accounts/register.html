@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST" action ="">
+        {% csrf_token %}
+        {% for field in form %}
+            <p>{{ field.label }} {{ field }}</p>
+        {% endfor %}
+        <input type="submit" name="Create User" value="Stwórz konto"/>
+        {{ form.errors }}
+        {% for message in messages %}
+            <p id="message">{{ message }}</p>
+        {% endfor %}
+        <div>
+            Posidasz konto? <a href="{% url 'appointments-service:login' %}">Zaloguj się</a>
+        </div>
+    </form>
+{% endblock %}
